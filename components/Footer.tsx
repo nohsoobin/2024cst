@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className='bg-gray-50 py-2'>
@@ -8,24 +10,19 @@ export default function Footer() {
       </div>
       <ul className='flex flex-wrap gap-4 md:gap-6 items-center text-sm text-gray-800 mt-2 sm:mt-0'>
         <li>
-          <a href='#' className='hover:underline'>
-            개인정보 처리방침
-          </a>
+          <Link href='/users/login' className='hover:underline'>
+            로그인
+          </Link>
         </li>
         <li>
-          <a href='#' className='hover:underline'>
-            이용약관
-          </a>
+          <Link href='/users/signin' className='hover:underline'>
+            회원가입
+          </Link>
         </li>
         <li>
-          <a href='#' className='hover:underline'>
-            공지사항
-          </a>
-        </li>
-        <li>
-          <a href='#' className='hover:underline'>
-            회사 세부정보
-          </a>
+          <Link href='/faqs' className='hover:underline'>
+            FAQ
+          </Link>
         </li>
       </ul>
       <div className='text-[10px] text-gray-400 mx-auto p-4 max-w-screen-xl'>
