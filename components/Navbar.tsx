@@ -15,6 +15,9 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 
 import Calender from "react-calendar";
 import { DetailFilterType, FilterProps } from "@/interface";
+import { SearchFilter } from "./Filter";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { detailFilterState, filterState } from "@/atom";
 
 const menus = [
   { id: 1, title: "로그인", url: "/users/login" },
@@ -25,17 +28,8 @@ const menus = [
 export default function Navbar() {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const [detailFilter, setDetailFilter] = useState<null | DetailFilterType>(
-    null
-  );
-
-  const [filterValue, setFilterValue] = useState<FilterProps>({
-    location: "",
-    checkIn: "",
-    checkOut: "",
-    guest: 0,
-  });
-
+  const [detailFilter, setDetailFilter] = useRecoilState(detailFilterState);
+  const filterValue = useRecoilValue(filterState);
   const router = useRouter();
   return (
     <nav
@@ -159,34 +153,7 @@ export default function Navbar() {
                   {`${filterValue?.guest} 명` || "게스트 추가"}
                 </div>
               </button>
-              {detailFilter === "location" && (
-                <LocationFilter
-                  filterValue={filterValue}
-                  setFilterValue={setFilterValue}
-                  setDetailFilter={setDetailFilter}
-                />
-              )}
-              {detailFilter === "checkIn" && (
-                <CheckInFilter
-                  filterValue={filterValue}
-                  setFilterValue={setFilterValue}
-                  setDetailFilter={setDetailFilter}
-                />
-              )}
-              {detailFilter === "checkOut" && (
-                <CheckOutFilter
-                  filterValue={filterValue}
-                  setFilterValue={setFilterValue}
-                  setDetailFilter={setDetailFilter}
-                />
-              )}
-              {detailFilter === "guest" && (
-                <GuestFilter
-                  filterValue={filterValue}
-                  setFilterValue={setFilterValue}
-                  setDetailFilter={setDetailFilter}
-                />
-              )}
+              <SearchFilter />
             </div>
             <div>
               <button
@@ -252,7 +219,7 @@ const LocationFilter = ({
   setDetailFilter,
 }: FilterComponentProps) => {
   return (
-    <div className='ansolute top-80 sm:top-[70px] border border-gray-200 px-8 py-10 flex flex-col bg-white w-full mx-auto inset-x-0 sm:max-w-3xl rounded-xl left-0'>
+    <div className='absolute top-80 sm:top-[70px] border border-gray-200 px-8 py-10 flex flex-col bg-white w-full mx-auto inset-x-0 sm:max-w-3xl rounded-xl left-0'>
       <div className='text-sm font-semibold'>지역으로 검색하기</div>
       <div className='flex flex-wrap gap-4 mt-4'>
         {["서울", "대전", "인천", "대구", "부산", "울산"]?.map((value) => (
