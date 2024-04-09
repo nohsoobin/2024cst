@@ -21,7 +21,7 @@ CREATE TABLE "Room" (
     "desc" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
     "bedroomDesc" TEXT,
-    "freeCancle" BOOLEAN NOT NULL DEFAULT false,
+    "freeCancel" BOOLEAN NOT NULL DEFAULT false,
     "selfCheckIn" BOOLEAN NOT NULL DEFAULT false,
     "officeSpace" BOOLEAN NOT NULL DEFAULT false,
     "hasMountainView" BOOLEAN NOT NULL DEFAULT false,
@@ -30,7 +30,7 @@ CREATE TABLE "Room" (
     "hasAirConditioner" BOOLEAN NOT NULL DEFAULT false,
     "hasWifi" BOOLEAN NOT NULL DEFAULT false,
     "hasBarbeque" BOOLEAN NOT NULL DEFAULT false,
-    "hadFreeParking" BOOLEAN NOT NULL DEFAULT false,
+    "hasFreeParking" BOOLEAN NOT NULL DEFAULT false,
     "userId" TEXT NOT NULL,
 
     CONSTRAINT "Room_pkey" PRIMARY KEY ("id")

@@ -7,7 +7,7 @@ export async function GET(req: Request) {
   const limit = searchParams.get("limit") as string;
 
   if (page) {
-    // 무한 스크롤 로직
+    // 무한 스크롤
     const count = await prisma.room.count();
     const skipPage = parseInt(page) - 1;
     const rooms = await prisma.room.findMany({

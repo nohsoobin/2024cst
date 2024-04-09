@@ -1,4 +1,4 @@
-import { IoIosSunny } from "react-icons/io";
+import { IoPartlySunnyOutline } from "react-icons/io5";
 import { MdOutlineBedroomChild, MdOutlineSurfing } from "react-icons/md";
 import {
   GiHolyOak,
@@ -39,7 +39,7 @@ export const CATEGORY = [
 ];
 
 export const CATEGORY_DATA = [
-  { title: "전망 좋음", Icon: "IoIosSunny" },
+  { title: "전망좋은", Icon: IoPartlySunnyOutline },
   { title: "자연", Icon: GiHolyOak },
   { title: "동굴", Icon: GiCaveEntrance },
   { title: "캠핑장", Icon: GiCampingTent },

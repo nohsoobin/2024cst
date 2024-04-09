@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { fakerKO as faker } from "@faker-js/faker";
 
 const prisma = new PrismaClient();
+
 export const CATEGORY = [
   "전망좋은",
   "자연",
@@ -154,8 +155,8 @@ async function seedFaqs() {
 }
 
 async function main() {
-  // await seedUsers()
-  //await seedRooms();
+  await seedUsers();
+  await seedRooms();
   await seedFaqs();
 }
 
