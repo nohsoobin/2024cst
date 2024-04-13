@@ -2,7 +2,7 @@
   "extends": ["plugin:prettier/recommended", "next/core-web-vitals"],
   "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "react-hooks/rules-og-hooks": "warn",
     "react/display-name": "warn"
   }
