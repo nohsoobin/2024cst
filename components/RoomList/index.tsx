@@ -1,3 +1,5 @@
+"use clinet";
+
 import { RoomType } from "@/interface";
 import { ReactNode } from "react";
 
