@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-
 export type DetailFilterType = "location" | "checkIn" | "checkOut" | "guest";
 export interface FilterProps {
   location: string;
@@ -8,7 +7,6 @@ export interface FilterProps {
   guest: number;
   category: string;
 }
-
 export interface FilterComponentProps {
   filterValue: FilterProps;
   setFilterValue: React.Dispatch<React.SetStateAction<FilterProps>>;
@@ -16,13 +14,11 @@ export interface FilterComponentProps {
     React.SetStateAction<DetailFilterType | null>
   >;
 }
-
 export interface FilterLayoutProps {
   title: string;
   children: ReactNode;
   isShow: boolean;
 }
-
 export interface RoomType {
   id: number;
   images: string[];
@@ -48,13 +44,21 @@ export interface RoomType {
   hasFreeParking: boolean;
 }
 
-interface UserType {
+interface Account {
+  id: string;
+  provider: string;
+}
+
+export interface UserType {
   id: number;
   email: string;
-  name: string;
-  image: string;
+  name?: string;
+  image?: string;
   desc?: string;
   rooms?: RoomType[];
+  accounts: Account[];
+  address?: string;
+  phone?: string;
 }
 
 export interface FaqType {
@@ -62,13 +66,11 @@ export interface FaqType {
   title: string;
   desc: string;
 }
-
 export interface LocationType {
   lat?: string | null;
   lng?: string | null;
   zoom?: number;
 }
-
 export interface ParamsProps {
   params: { id: string };
 }
